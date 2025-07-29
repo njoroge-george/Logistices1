@@ -80,52 +80,52 @@ export default function Journal() {
         <Grid container spacing={2}>
             {noteList.map((note) => (
                 <Grid item xs={12} md={6} lg={4} key={note.id}>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                    >
-                        <Paper
-                            sx={{
-                                p: 2,
-                                position: 'relative',
-                                borderLeft: '5px solid #1976d2',
-                                backgroundColor: theme.palette.mode === 'dark' ? '#424242' : '#f9f9f9',
-                                boxShadow: 3,
-                                borderRadius: 2
-                            }}
-                        >
-                            <Typography variant="body2" color="text.secondary">
-                                {new Date(note.date).toLocaleString()}
-                            </Typography>
-                            {note.tags && (
-                                <Chip label={`#${note.tags}`} color="primary" variant="outlined" size="small" sx={{ my: 1 }} />
-                            )}
+                    {/*<motion.div*/}
+                    {/*    initial={{ opacity: 0, y: 20 }}*/}
+                    {/*    animate={{ opacity: 1, y: 0 }}*/}
+                    {/*    exit={{ opacity: 0, y: -20 }}*/}
+                    {/*>*/}
+                    {/*    <Paper*/}
+                    {/*        sx={{*/}
+                    {/*            p: 2,*/}
+                    {/*            position: 'relative',*/}
+                    {/*            borderLeft: '5px solid #1976d2',*/}
+                    {/*            backgroundColor: theme.palette.mode === 'dark' ? '#424242' : '#f9f9f9',*/}
+                    {/*            boxShadow: 3,*/}
+                    {/*            borderRadius: 2*/}
+                    {/*        }}*/}
+                    {/*    >*/}
+                    {/*        <Typography variant="body2" color="text.secondary">*/}
+                    {/*            {new Date(note.date).toLocaleString()}*/}
+                    {/*        </Typography>*/}
+                    {/*        {note.tags && (*/}
+                    {/*            <Chip label={`#${note.tags}`} color="primary" variant="outlined" size="small" sx={{ my: 1 }} />*/}
+                    {/*        )}*/}
 
-                            {editingId === note.id ? (
-                                <>
-                                    <TextField
-                                        fullWidth
-                                        multiline
-                                        value={editText}
-                                        onChange={(e) => setEditText(e.target.value)}
-                                        sx={{ my: 1 }}
-                                    />
-                                    <IconButton onClick={() => handleSaveEdit(note.id)}><Save /></IconButton>
-                                    <IconButton onClick={() => setEditingId(null)}><Cancel /></IconButton>
-                                </>
-                            ) : (
-                                <>
-                                    <Typography sx={{ my: 1 }}>{note.text}</Typography>
-                                    <IconButton onClick={() => { setEditingId(note.id); setEditText(note.text); }}><Edit /></IconButton>
-                                    <IconButton onClick={() => handleDelete(note.id)}><Delete /></IconButton>
-                                    <IconButton onClick={() => handleTogglePin(note.id, note.pinned)}>
-                                        {note.pinned ? <Star /> : <StarBorder />}
-                                    </IconButton>
-                                </>
-                            )}
-                        </Paper>
-                    </motion.div>
+                    {/*        {editingId === note.id ? (*/}
+                    {/*            <>*/}
+                    {/*                <TextField*/}
+                    {/*                    fullWidth*/}
+                    {/*                    multiline*/}
+                    {/*                    value={editText}*/}
+                    {/*                    onChange={(e) => setEditText(e.target.value)}*/}
+                    {/*                    sx={{ my: 1 }}*/}
+                    {/*                />*/}
+                    {/*                <IconButton onClick={() => handleSaveEdit(note.id)}><Save /></IconButton>*/}
+                    {/*                <IconButton onClick={() => setEditingId(null)}><Cancel /></IconButton>*/}
+                    {/*            </>*/}
+                    {/*        ) : (*/}
+                    {/*            <>*/}
+                    {/*                <Typography sx={{ my: 1 }}>{note.text}</Typography>*/}
+                    {/*                <IconButton onClick={() => { setEditingId(note.id); setEditText(note.text); }}><Edit /></IconButton>*/}
+                    {/*                <IconButton onClick={() => handleDelete(note.id)}><Delete /></IconButton>*/}
+                    {/*                <IconButton onClick={() => handleTogglePin(note.id, note.pinned)}>*/}
+                    {/*                    {note.pinned ? <Star /> : <StarBorder />}*/}
+                    {/*                </IconButton>*/}
+                    {/*            </>*/}
+                    {/*        )}*/}
+                    {/*    </Paper>*/}
+                    {/*</motion.div>*/}
                 </Grid>
             ))}
         </Grid>
